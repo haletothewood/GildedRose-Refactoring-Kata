@@ -71,15 +71,10 @@ class GildedRose
   private
 
   def normal_update(item)
-    if quality?(item)
-      unless perished?(item)
-        item.quality -= 1
-      end
-      if perished?(item)
-        item.quality -= 2
-      end
-    end
     reduce_sell_in(item)
+    return unless quality?(item)
+    item.quality -= 1
+    item.quality -= 1 if perished?(item)
   end
 
   def reduce_sell_in(item)
