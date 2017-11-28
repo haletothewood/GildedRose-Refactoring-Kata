@@ -7,12 +7,18 @@ class GildedRose
     'Sulfuras, Hand of Ragnaros',
     'Conjured'
   ]
-  MAX_QUALITY = 50
+  MAXIMUM_QUALITY = 50
+  MINIMUM_QUALITY = 0
+  SELL_BY_DATE = 0
+  ONE_DAY = 1
+  TEN_DAYS = 10
+  FIVE_DAYS = 5
 
   def initialize(items)
     @items = items
   end
 
+  #separate into classes
   def update_quality
     @items.each do |item|
       case item.name
@@ -51,7 +57,7 @@ class GildedRose
     item.quality += 1
     item.quality += 1 if within_ten_days(item)
     item.quality += 2 if within_five_days(item)
-    item.quality = 0 if perished?(item)
+    item.quality = MIN_QUALITY if perished?(item)
   end
 
   def sulfuras_update(item)
@@ -65,22 +71,22 @@ class GildedRose
   end
 
   def reduce_sell_in(item)
-    item.sell_in -= 1
+    item.sell_in -= ONE_DAY
   end
 
   def perished?(item)
-    item.sell_in <= 0
+    item.sell_in <= SELL_BY_DATE
   end
 
   def quality?(item)
-    item.quality > 0
+    item.quality > MIN_QUALITY
   end
 
   def within_ten_days(item)
-    item.sell_in <= 10 && item.sell_in > 5
+    item.sell_in <= TEN_DAYS && item.sell_in > FIVE_DAYS
   end
 
   def within_five_days(item)
-    item.sell_in <= 5 && !perished?(item)
+    item.sell_in <= FIVE_DAYS && !perished?(item)
   end
 end
