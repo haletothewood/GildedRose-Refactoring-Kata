@@ -81,4 +81,12 @@ describe GildedRose do
       expect(items[0].quality).to eq 0
     end
   end
+
+  context 'Conjured' do
+    it 'reduces quality by 2 if sell in value is more than 0' do
+      items = [Item.new('Conjured', 10, 8)]
+      GildedRose.new(items).update_quality
+      expect(items[0].quality).to eq 6
+    end
+  end
 end
