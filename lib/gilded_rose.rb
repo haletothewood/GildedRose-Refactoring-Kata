@@ -7,7 +7,8 @@ class GildedRose
     'Sulfuras, Hand of Ragnaros',
     'Conjured'
   ]
-  
+  MAX_QUALITY = 50
+
   def initialize(items)
     @items = items
   end
@@ -17,6 +18,8 @@ class GildedRose
     @items.each do |item|
       if !NAMED_ITEMS.include?(item.name)
         return normal_update(item)
+      elsif item.name == NAMED_ITEMS[0]
+        return brie_update(item)
       end
       if item.name != 'Aged Brie' and item.name != 'Backstage passes to a TAFKAL80ETC concert'
         if quality?(item)
@@ -33,12 +36,12 @@ class GildedRose
           item.quality = item.quality + 1
           if item.name == 'Backstage passes to a TAFKAL80ETC concert'
             if item.sell_in < 11
-              if item.quality < 50
+              if item.quality < MAX_QUALITY
                 item.quality = item.quality + 1
               end
             end
             if item.sell_in < 6
-              if item.quality < 50
+              if item.quality < MAX_QUALITY
                 item.quality = item.quality + 1
               end
             end
@@ -60,7 +63,7 @@ class GildedRose
             item.quality = item.quality - item.quality
           end
         else
-          if item.quality < 50
+          if item.quality < MAX_QUALITY
             item.quality = item.quality + 1
           end
         end
@@ -76,6 +79,14 @@ class GildedRose
     item.quality -= 1
     item.quality -= 1 if perished?(item)
   end
+
+  def brie_update(item)
+    reduce_sell_in(item)
+    return if item.quality >= MAX_QUALITY
+    item.quality += 1
+    item.quality += 1 if perished?(item)
+  end
+
 
   def reduce_sell_in(item)
     item.sell_in -= 1
