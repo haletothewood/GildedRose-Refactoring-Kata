@@ -19,12 +19,32 @@ describe GildedRose do
       expect(items[0].sell_in).to eq -1
     end
 
-    it "reduces the quality by 2 when sell in is 0 or less" do
-      items = [Item.new("bar", 0, 20)]
+    it 'reduces the quality by 2 when sell in is 0 or less' do
+      items = [Item.new('bar', 0, 20)]
       GildedRose.new(items).update_quality
       GildedRose.new(items).update_quality
       expect(items[0].sell_in).to eq -2
       expect(items[0].quality).to eq 16
+    end
+  end
+
+  context 'Aged Brie' do
+    it 'increases the quality by 1 if sell in value is more than 0' do
+      items = [Item.new('Aged Brie', 10, 1)]
+      GildedRose.new(items).update_quality
+      expect(items[0].quality).to eq 2
+    end
+
+    it 'increases the the quality by 2 if sell in value is 0 or less' do
+      items = [Item.new('Aged Brie', 0, 0)]
+      GildedRose.new(items).update_quality
+      expect(items[0].quality).to eq 2
+    end
+
+    it "quality has a max value of 50" do
+      items = [Item.new("Aged Brie", 0, 50)]
+      GildedRose.new(items).update_quality
+      expect(items[0].quality).to eq 50
     end
   end
 end
