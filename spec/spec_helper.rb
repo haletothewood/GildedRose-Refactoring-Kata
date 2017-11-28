@@ -1,5 +1,7 @@
 require 'simplecov'
 require 'simplecov-console'
+require 'gilded_rose'
+require 'item'
 
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
