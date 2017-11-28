@@ -8,7 +8,7 @@ describe GildedRose do
     end
 
     it 'reduces quality by 1 if more than 0' do
-      items = [Item.new('foo', 0, 1)]
+      items = [Item.new('foo', 10, 1)]
       GildedRose.new(items).update_quality
       expect(items[0].quality).to eq 0
     end
