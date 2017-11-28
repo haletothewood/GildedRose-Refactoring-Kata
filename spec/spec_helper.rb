@@ -1,3 +1,6 @@
+require 'coveralls'
+Coveralls.wear!
+
 require 'simplecov'
 require 'simplecov-console'
 require 'gilded_rose'
