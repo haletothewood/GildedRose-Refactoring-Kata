@@ -15,12 +15,14 @@ class GildedRose
 
   def update_quality
     @items.each do |item|
-      if !NAMED_ITEMS.include?(item.name)
+      if !NAMED_ITEMS.include?(item.name) 
         return normal_update(item)
       elsif item.name == NAMED_ITEMS[0]
         return brie_update(item)
       elsif item.name == NAMED_ITEMS[1]
         return backstage_update(item)
+      elsif item.name == NAMED_ITEMS[2]
+        return sulfuras_update(item)
       end
       if item.name != 'Aged Brie' and item.name != 'Backstage passes to a TAFKAL80ETC concert'
         if quality?(item)
@@ -94,6 +96,9 @@ class GildedRose
     item.quality += 1 if within_ten_days(item)
     item.quality += 2 if within_five_days(item)
     item.quality = 0 if perished?(item)
+  end
+
+  def sulfuras_update(item)
   end
 
   def reduce_sell_in(item)
