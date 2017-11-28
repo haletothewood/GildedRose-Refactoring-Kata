@@ -88,6 +88,14 @@ class GildedRose
     item.quality += 1 if perished?(item)
   end
 
+  def backstage_update(item)
+    reduce_sell_in(item)
+    item.quality += 1
+    item.quality += 1 if within_ten_days(item)
+    item.quality += 2 if within_five_days(item)
+    item.quality = 0 if perished?(item)
+  end
+
   def reduce_sell_in(item)
     item.sell_in -= 1
   end
@@ -98,5 +106,13 @@ class GildedRose
 
   def quality?(item)
     item.quality > 0
+  end
+
+  def within_ten_days(item)
+    item.sell_in <= 10 && item.sell_in > 5
+  end
+
+  def within_five_days(item)
+    item.sell_in <= 5 && !perished?(item)
   end
 end
