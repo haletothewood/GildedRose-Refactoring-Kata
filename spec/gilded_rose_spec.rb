@@ -1,14 +1,10 @@
 describe GildedRose do
-
-  let(:item) { double :item, name: 'Foo', sell_in: 0, quality: 0 }
-
-  describe '#update_quality' do
-    it 'does not change the name' do
-      items = [item]
-      allow(item).to receive(:quality=).with(1)
-      allow(item).to receive(:sell_in=).with(-1)
+    
+  describe "#update_quality" do
+    it "does not change the quality if quality is 0" do
+      items = [Item.new("Item", 0, 0)]
       GildedRose.new(items).update_quality
-      expect(items[0].name).to eq 'Foo'
+      expect(items[0].quality).to eq 0
     end
   end
 end
