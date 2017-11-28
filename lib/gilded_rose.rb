@@ -35,7 +35,7 @@ class GildedRose
         end
       end
       if item.name != "Sulfuras, Hand of Ragnaros"
-        item.sell_in = item.sell_in - 1
+        reduce_sell_in(item)
       end
       if item.sell_in < 0
         if item.name != "Aged Brie"
@@ -55,5 +55,11 @@ class GildedRose
         end
       end
     end
+  end
+
+  private
+
+  def reduce_sell_in(item)
+    item.sell_in -= 1
   end
 end
