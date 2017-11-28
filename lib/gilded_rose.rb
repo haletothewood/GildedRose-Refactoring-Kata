@@ -13,13 +13,14 @@ class GildedRose
     @items = items
   end
 
-  #next to exit the loop so you can build methods/classes
   def update_quality
     @items.each do |item|
       if !NAMED_ITEMS.include?(item.name)
         return normal_update(item)
       elsif item.name == NAMED_ITEMS[0]
         return brie_update(item)
+      elsif item.name == NAMED_ITEMS[1]
+        return backstage_update(item)
       end
       if item.name != 'Aged Brie' and item.name != 'Backstage passes to a TAFKAL80ETC concert'
         if quality?(item)
@@ -86,7 +87,6 @@ class GildedRose
     item.quality += 1
     item.quality += 1 if perished?(item)
   end
-
 
   def reduce_sell_in(item)
     item.sell_in -= 1
