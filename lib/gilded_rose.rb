@@ -15,16 +15,17 @@ class GildedRose
 
   def update_quality
     @items.each do |item|
-      if !NAMED_ITEMS.include?(item.name) 
-        return normal_update(item)
-      elsif item.name == NAMED_ITEMS[0]
-        return brie_update(item)
-      elsif item.name == NAMED_ITEMS[1]
-        return backstage_update(item)
-      elsif item.name == NAMED_ITEMS[2]
-        return sulfuras_update(item)
-      elsif item.name == NAMED_ITEMS[3]
-        return conjured_update(item)
+      case item.name
+        when NAMED_ITEMS[0]
+          return brie_update(item)
+        when NAMED_ITEMS[1]
+          return backstage_update(item)
+        when NAMED_ITEMS[2]
+          return sulfuras_update(item)
+        when NAMED_ITEMS[3]
+          return conjured_update(item)
+        else
+          return normal_update(item)
       end
     end
   end
