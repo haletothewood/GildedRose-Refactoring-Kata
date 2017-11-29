@@ -2,19 +2,23 @@
 
 require_relative './lib/gilded_rose.rb'
 require_relative './lib/item.rb'
+require_relative './lib/normal.rb'
+require_relative './lib/brie.rb'
+require_relative './lib/sulfuras.rb'
+require_relative './lib/conjured.rb'
+require_relative './lib/backstage.rb'
 
 puts "OMGHAI!"
 items = [
-  Item.new("+5 Dexterity Vest", 10, 20),
-  Item.new("Aged Brie", 2, 0),
-  Item.new("Elixir of the Mongoose", 5, 7),
-  Item.new("Sulfuras, Hand of Ragnaros", 0, 80),
-  Item.new("Sulfuras, Hand of Ragnaros", -1, 80),
-  Item.new("Backstage passes to a TAFKAL80ETC concert", 15, 20),
-  Item.new("Backstage passes to a TAFKAL80ETC concert", 10, 49),
-  Item.new("Backstage passes to a TAFKAL80ETC concert", 5, 49),
-  # This Conjured item does not work properly yet
-  Item.new("Conjured Mana Cake", 3, 6), # <--  =O
+  Normal.new("+5 Dexterity Vest", 10, 20),
+  Brie.new("Aged Brie", 2, 0),
+  Normal.new("Elixir of the Mongoose", 5, 7),
+  Sulfuras.new("Sulfuras, Hand of Ragnaros", 0, 80),
+  Sulfuras.new("Sulfuras, Hand of Ragnaros", -1, 80),
+  Backstage.new("Backstage passes to a TAFKAL80ETC concert", 15, 20),
+  Backstage.new("Backstage passes to a TAFKAL80ETC concert", 10, 49),
+  Backstage.new("Backstage passes to a TAFKAL80ETC concert", 5, 49),
+  Conjured.new("Conjured Mana Cake", 3, 6)
 ]
 
 days = 2
