@@ -21,7 +21,7 @@ items = [
   Conjured.new("Conjured Mana Cake", 3, 6)
 ]
 
-days = 2
+days = 20
 if ARGV.size > 0
   days = ARGV[0].to_i + 1
 end
