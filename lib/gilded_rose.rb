@@ -18,7 +18,6 @@ class GildedRose
     @items = items
   end
 
-  #separate into classes
   def update_quality
     @items.each do |item|
       case item.name
@@ -47,7 +46,7 @@ class GildedRose
 
   def brie_update(item)
     reduce_sell_in(item)
-    return if item.quality >= MAX_QUALITY
+    return if item.quality >= MAXIMUM_QUALITY
     item.quality += 1
     item.quality += 1 if perished?(item)
   end
@@ -57,7 +56,7 @@ class GildedRose
     item.quality += 1
     item.quality += 1 if within_ten_days(item)
     item.quality += 2 if within_five_days(item)
-    item.quality = MIN_QUALITY if perished?(item)
+    item.quality = MINIMUM_QUALITY if perished?(item)
   end
 
   def sulfuras_update(item)
@@ -79,7 +78,7 @@ class GildedRose
   end
 
   def quality?(item)
-    item.quality > MIN_QUALITY
+    item.quality > MINIMUM_QUALITY
   end
 
   def within_ten_days(item)
