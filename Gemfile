@@ -2,9 +2,9 @@ source 'https://rubygems.org'
 
 gem 'rubocop'
 gem 'simplecov-console'
-gem 'coveralls'
 
 group :test do
+  gem 'coveralls', require: false
   gem 'rspec', require: false
   gem 'simplecov', require: false
 end
