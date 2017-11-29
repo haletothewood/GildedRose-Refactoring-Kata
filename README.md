@@ -6,12 +6,14 @@
 
 ## Getting Started
 
-`git clone https://github.com/haletothewood/GildedRose-Refactoring-Kata`  
+`git clone https://github.com/haletothewood/GildedRose-Refactoring-Kata` 
+
 `bundle`  
 
 ## Usage
 
-To see the update ticker in action please run:  
+To see the Gilded Rose in action please run:  
+
 `ruby texttest_fixture.rb`
 
 ## Running tests
