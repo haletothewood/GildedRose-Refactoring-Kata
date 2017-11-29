@@ -3,7 +3,7 @@ require 'backstage'
 describe Backstage do
 
   context '#update' do
-    let(:backstage) { described_class.new('Aged_backstage', 20, 20) }
+    let(:backstage) { described_class.new('Backstage', 20, 20) }
     before :each do
       backstage.update
     end
