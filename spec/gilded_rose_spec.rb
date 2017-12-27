@@ -4,8 +4,9 @@ describe GildedRose do
   let(:backstage) { double :backstage, name: 'Backstage passes to a TAFKAL80ETC concert' }
   let(:sulfuras) { double :sulfuras, name: 'Sulfuras, Hand of Ragnaros' }
   let(:conjured) { double :conjured, name: 'Conjured' }
+
   let(:items) { [normal, brie, backstage, sulfuras, conjured] }
-  let(:gilded_rose) { described_class.new(items)}
+  let(:gilded_rose) { described_class.new(items) }
 
   describe '#update_quality' do
     it 'instructs each item to update it\'s quality' do
