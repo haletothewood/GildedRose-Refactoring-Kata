@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/haletothewood/GildedRose-Refactoring-Kata.svg?branch=master)](https://travis-ci.org/haletothewood/GildedRose-Refactoring-Kata)
+[![Build Status](https://travis-ci.org/haletothewood/GildedRubyRose.svg?branch=master)](https://travis-ci.org/haletothewood/GildedRubyRose)
 
 # Gilded Rose Refactoring Kata
 
