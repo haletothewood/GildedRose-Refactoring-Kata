@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rubocop'
+gem 'rake'
 gem 'simplecov-console'
 
 group :test do
